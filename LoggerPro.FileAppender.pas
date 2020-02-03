@@ -285,7 +285,7 @@ begin
   if Assigned(aEncoding) then
     fEncoding := aEncoding
   else
-    fEncoding := TEncoding.DEFAULT;
+    fEncoding := TEncoding.utf8;
 end;
 
 function TLoggerProFileAppender.CreateWriter(const aFileName: string): TStreamWriter;
