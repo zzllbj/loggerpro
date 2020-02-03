@@ -209,7 +209,7 @@ procedure TLoggerProFileAppender.RetryMove(const aFileSrc, aFileDest: string);
 var
   lRetries: Integer;
 const
-  MAX_RETRIES = 5;
+  MAX_RETRIES = 8;
 begin
   lRetries := 0;
   repeat
@@ -301,7 +301,7 @@ begin
   // If the file si still blocked by a precedent execution or
   // for some other reasons, we try to access the file for 5 times.
   // If after 5 times (with a bit of delay in between) the file is still
-  // locked, then the exception is raised.
+  // locked, then the exception is  raised.
   lRetries := 0;
   while true do
   begin
