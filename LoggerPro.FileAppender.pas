@@ -88,16 +88,18 @@ type
     }
     DEFAULT_FILENAME_FORMAT = '%s.%2.2d.%s.log';
     { @abstract(Defines number of log file set to mantain during logs rotation) }
-    DEFAULT_MAX_BACKUP_FILE_COUNT = 5;
+    DEFAULT_MAX_BACKUP_FILE_COUNT = 8;
     { @abstract(Defines the max size of each log file)
       The actual meaning is: "If the file size is > than @link(DEFAULT_MAX_FILE_SIZE_KB) then rotate logs. }
-    DEFAULT_MAX_FILE_SIZE_KB = 1000;
+    DEFAULT_MAX_FILE_SIZE_KB = 4000;
     { @abstract(Milliseconds to wait between the RETRY_COUNT times. }
     RETRY_DELAY = 200;
     { @abstract(How much times we have to retry if the file is locked?. }
     RETRY_COUNT = 5;
+    {这里是配置日志文件的路径，by zzl 修改}
+    DEFAULT_LOGDIR_PATH = './log';
     constructor Create(aMaxBackupFileCount: Integer = DEFAULT_MAX_BACKUP_FILE_COUNT;
-      aMaxFileSizeInKiloByte: Integer = DEFAULT_MAX_FILE_SIZE_KB; aLogsFolder: string = ''; aFileAppenderOptions: TFileAppenderOptions = [];
+      aMaxFileSizeInKiloByte: Integer = DEFAULT_MAX_FILE_SIZE_KB; aLogsFolder: string = DEFAULT_LOGDIR_PATH; aFileAppenderOptions: TFileAppenderOptions = [];
       aLogFileNameFormat: string = DEFAULT_FILENAME_FORMAT; aLogFormat: string = DEFAULT_LOG_FORMAT; aEncoding: TEncoding = nil);
       reintroduce;
     procedure Setup; override;
